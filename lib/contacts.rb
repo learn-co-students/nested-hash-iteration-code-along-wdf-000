@@ -4,16 +4,25 @@ require 'pry'
   # contacts = {
   #   "Jon Snow" => {
   #     name: "Jon",
-  #     email: "jon_snow@thewall.we", 
-  #     favorite_icecream_flavors: ["chocolate", "vanilla"]
+  #     email: "jon_snow@thewall.we",
+  #     favorite_ice_cream_flavors: ["chocolate", "vanilla"]
   #   },
   #   "Freddy Mercury" => {
   #     name: "Freddy",
   #     email: "freddy@mercury.com",
-  #     favorite_icecream_flavors: ["strawberry", "cookie dough", "mint chip"]
+  #     favorite_ice_cream_flavors: ["strawberry", "cookie dough", "mint chip"]
   #   }
   # }
-  
-def remove_strawberry(contacts)
 
+def remove_strawberry(contacts)
+  contacts.each do |person, contact_details_hash|
+    # binding.pry
+    contact_details_hash.each do |attribute, data|
+      # binding.pry
+      # data.delete_if {|ice_cream| ice_cream == "strawberry"}
+      if attribute == :favorite_ice_cream_flavors && data.include?("strawberry")
+        data.delete("strawberry")
+      end
+    end
+  end
 end
