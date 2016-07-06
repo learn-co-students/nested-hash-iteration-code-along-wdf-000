@@ -15,5 +15,8 @@ require 'pry'
   # }
   
 def remove_strawberry(contacts)
-
+  contacts.each do |contact|
+    contact[1][:favorite_ice_cream_flavors].reject! {|taste| taste == "strawberry"}
+  end
+  contacts
 end
